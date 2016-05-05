@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Children</title>
+	<script type="text/javascript" src="./js/react.js"></script>
+	<script type="text/javascript" src="./js/react-dom.js"></script>
+	<script type="text/javascript" src="./js/browser.min.js"></script>
+</head>
+<body>
+	<div id="myid"></div>
+	<div id="anotherid"></div>
+	<script type="text/babel">
+	var Person = React.createClass({
+		render: function(){
+			debugger;
+			return (
+				<ol>
+				{
+					React.Children.map(this.props.children, function(child){
+						return <li>{child}</li>; //{}--expr
+					})
+					//child nodes -- arg1
+					//each child function -- arg2
+				}	
+				</ol>
+			);
+		} // returns our html
+	});
+	//render object
+	ReactDOM.render(<Person>
+						<span>Pavan</span>
+						<span>Kumar</span>
+						<span>Ram</span>
+					</Person>,
+		document.getElementById("myid")
+	);
+	ReactDOM.render(<Person>
+		<span>Person1</span>
+		<span>Person2</span>
+		<Person>
+			<span>Person3</span>
+		</Person>
+	</Person>,document.getElementById("anotherid"));
+	//arg1 -- custom component with children
+	//arg2 -- our id injecting target
+	</script>
+</body>
+</html>

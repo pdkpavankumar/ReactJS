@@ -1,0 +1,25 @@
+<html>
+<head>
+	<title>React App</title>
+	<script type="text/javascript" src="./js/react.js"></script>
+	<script type="text/javascript" src="./js/react-dom.js"></script>
+	<script type="text/javascript" src="./js/browser.min.js"></script>
+</head>
+<body>
+	<div id="myid"></div>
+	<script type="text/babel">
+		//no camel case************
+		var HaiComponent = React.createClass({
+			render: function(){
+				return <h1> hai {this.props.property1} {this.props.property2}</h1>;
+			}
+		});
+		ReactDOM.render(
+		<HaiComponent property1="pavan" property2="kumar"/>,
+		document.getElementById("myid")
+		);
+		//arg1---custom component
+		//arg2---ID object
+	</script>
+</body>
+</html>
