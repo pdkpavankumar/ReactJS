@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title>React First App</title>
+	<script type="text/javascript" src="./js/react.js"></script>
+	<script type="text/javascript" src="./js/react-dom.js"></script>
+	<script type="text/javascript" src="./js/browser.min.js"></script>
+</head>
+<body>
+	<div id="myid"></div>
+	<script type="text/babel">
+		var MyComponent = React.createClass({
+			handleClick: function(event){
+				this.refs.mytextbox.value=this.refs.mytextbox.value+"clickedme";
+			},
+			render: function(){
+			return (<div>
+						<input type="text" value="" ref="mytextbox"/>
+						<input type="button" value="mybutton" onClick={this.handleClick}/>
+					</div>);
+			}
+		});
+
+		ReactDOM.render(
+			<MyComponent/>,
+			document.getElementById("myid")
+		);
+	</script>
+</body>
+</html>
