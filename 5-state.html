@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>React App</title>
+	<script type="text/javascript" src="./js/react.js"></script>
+	<script type="text/javascript" src="./js/react-dom.js"></script>
+	<script type="text/javascript" src="./js/browser.min.js"></script>
+</head>
+<body>
+	<div id="myid"></div>
+	<script type="text/babel">
+		var MyLikeComponent = React.createClass({
+			getInitialState: function(){
+				return {liked:false};
+			},
+			handleClick: function(event){
+				this.setState({liked:!this.state.liked});
+			},
+			render: function(){
+				var txt = this.state.liked ? "like" : "dislike";
+				return (
+						<div>
+						<h1>I {txt} this</h1>
+						<input type="button" value="toggle" onClick={this.handleClick}/>
+						</div>);
+			}
+		});
+
+		ReactDOM.render(<MyLikeComponent/>,document.getElementById("myid"));
+	</script>
+</body>
+</html>
